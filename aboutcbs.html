@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About – CBS Logistics Limited</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+:root{
+--green:#a7c636;
+--teal:#0e5c4f;
+--gold:#f2b705;
+--dark:#0e0e0e;
+--light:#f7f9f8;
+--soft:#f0f6f4;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+
+/* ===== PREMIUM NAVBAR ===== */
+
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:2000;
+
+  padding:14px 70px;
+
+  display:flex;
+  align-items:center;
+
+  /* GLASS EFFECT */
+  background:rgba(8,45,40,.75);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+
+  border-bottom:1px solid rgba(255,255,255,.08);
+
+  transition:
+    padding .4s ease,
+    background .4s ease,
+    box-shadow .4s ease;
+}
+
+/* SCROLL TRANSITION */
+.navbar.scrolled{
+  background:rgba(6,34,30,.96);
+  padding:10px 70px;
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.28),
+    inset 0 0 0 1px rgba(255,255,255,.06);
+}
+
+
+/* ===== BRAND AREA ===== */
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+/* LOGO NO BACKGROUND */
+.nav-logo{
+  height:56px;
+  padding:0;
+  background:none !important;
+  transition:.4s;
+}
+
+/* slight lift on hover */
+.brand:hover .nav-logo{
+  transform:translateY(-2px) scale(1.03);
+}
+
+
+/* ===== TEXT STYLING ===== */
+
+.brand-text h3{
+  font-size:20px;
+  letter-spacing:.9px;
+  font-weight:800;
+
+  /* GOLD → WHITE GRADIENT TEXT */
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff 10%,
+      var(--gold) 60%,
+      #fff7c2 100%
+    );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,.25));
+
+  transition:.4s;
+}
+
+/* glow on hover */
+.brand:hover h3{
+  filter:
+    drop-shadow(0 2px 10px rgba(242,183,5,.35));
+}
+
+/* TAGLINE */
+.brand-text small{
+  display:block;
+
+  font-size:11.5px;
+  letter-spacing:.8px;
+
+  color:#eaf5f2;
+  opacity:.9;
+
+  transition:.4s;
+}
+
+/* subtle hover */
+.brand:hover small{
+  opacity:1;
+  letter-spacing:1px;
+}
+
+
+/* ===== MOBILE ===== */
+
+@media(max-width:900px){
+
+  .navbar{
+    padding:10px 20px;
+  }
+
+  .navbar.scrolled{
+    padding:8px 20px;
+  }
+
+  .brand-text h3{
+    font-size:17px;
+  }
+
+  .nav-logo{
+    height:48px;
+  }
+
+}
+
+.brand{display:flex;align-items:center;gap:14px;color:white}
+.brand img{height:54px;background:white;padding:6px;border-radius:12px}
+
+/* HERO INTRO */
+.hero-intro{
+padding:150px 60px 60px;
+max-width:1200px;margin:auto;
+display:grid;grid-template-columns:1.2fr .8fr;gap:40px;
+}
+.hero-intro h1{font-size:54px;line-height:1.1}
+.hero-intro span{color:var(--teal)}
+
+.btn-main{
+background:#111;color:white;padding:12px 22px;
+text-decoration:none;display:inline-block;margin-top:12px;
+}
+
+/* BRAND DIVIDER */
+.divider{
+height:4px;width:120px;
+background:linear-gradient(90deg,var(--gold),var(--teal));
+margin:12px 0 20px;
+}
+
+/* MISSION VISION FULL */
+.mv-full{
+background:white;padding:50px;
+max-width:1100px;margin:20px auto;
+border-radius:22px;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+
+.mv-card{
+padding:20px;border-left:4px solid var(--gold);
+}
+.mv-card h3{color:var(--teal);margin-bottom:6px}
+
+/* CORPORATE SECTIONS */
+.wrap{max-width:1100px;margin:auto;padding:20px 40px}
+
+.section{
+padding:34px;border-radius:18px;margin:22px 0;
+}
+.bg1{background:white}
+.bg2{background:var(--soft)}
+.bg3{background:#083d35;color:white}
+
+.image-row{
+display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px
+}
+.image-row img{
+width:100%;height:260px;object-fit:cover;border-radius:18px
+}
+
+.tick li{list-style:none;margin:6px 0}
+.tick li:before{content:"✓";color:var(--teal);margin-right:6px}
+
+/* BUYER TRUST */
+.trust{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:18px;text-align:center
+}
+.trust-box{
+background:white;padding:20px;border-radius:16px
+}
+
+/* COUNTERS */
+.counters{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:16px;
+}
+.count{
+background:var(--teal);color:white;
+padding:20px;border-radius:14px;text-align:center;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+.hero-intro,.mv-grid,.image-row{grid-template-columns:1fr}
+.hero-intro{padding:120px 20px}
+}
+/* ===== ULTRA MISSION VISION ===== */
+
+.mv-ultra{
+  position:relative;
+  background:
+  linear-gradient(150deg,#f0f8f5,#ffffff,#eaf3f0);
+
+  padding:60px 20px;
+  overflow:hidden;
+}
+
+.mv-header{
+  text-align:center;
+}
+
+.mv-header .mini{
+  letter-spacing:3px;
+  font-size:12px;
+  color:var(--teal);
+}
+
+.mv-header h2{
+  font-size:36px;
+  margin-top:4px;
+}
+
+.gold-line{
+  width:120px;
+  height:3px;
+  margin:12px auto;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+
+/* GRID */
+.mv-grid{
+  max-width:1100px;
+  margin:30px auto;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+
+/* CARD */
+.mv-card{
+  background:rgba(255,255,255,.86);
+  backdrop-filter:blur(10px);
+
+  border-radius:24px;
+  padding:26px;
+
+  box-shadow:0 16px 40px rgba(0,0,0,.08);
+  border:1px solid rgba(14,92,79,.08);
+
+  transition:.4s;
+  position:relative;
+}
+
+.mv-card:hover{
+  transform:translateY(-8px);
+}
+
+/* ICON */
+.icon-box{
+  width:46px;
+  height:46px;
+
+  border-radius:50%;
+  background:rgba(14,92,79,.12);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:20px;
+  color:var(--teal);
+}
+
+.icon-box.vision{
+  background:rgba(242,183,5,.14);
+  color:#7a5c00;
+}
+
+/* BAR ANIMATION */
+.motion-bar{
+  height:2px;
+  width:60px;
+  background:var(--gold);
+  margin:10px 0;
+
+  animation:move 3s infinite;
+}
+
+@keyframes move{
+  0%{width:40px}
+  50%{width:120px}
+  100%{width:40px}
+}
+
+/* TAGS */
+.tags{
+  margin-top:14px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.tags span{
+  background:#eef6f2;
+  color:var(--teal);
+
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:20px;
+}
+
+/* FLOATING SHAPES */
+.shape{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(60px);
+  opacity:.3;
+}
+
+.s1{
+  width:200px;
+  height:200px;
+  background:var(--gold);
+  top:-60px;
+  left:-60px;
+}
+
+.s2{
+  width:220px;
+  height:220px;
+  background:var(--teal);
+  bottom:-80px;
+  right:-80px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .mv-grid{
+    grid-template-columns:1fr;
+  }
+}
+/* ===== FOOTER ALIGNMENT FIX ===== */
+
+/* ===== PREMIUM FOOTER ===== */
+
+.footer{
+  position:relative;
+
+  background:
+  linear-gradient(
+    160deg,
+    rgba(14,92,79,.97),
+    rgba(7,54,47,.97)
+  );
+
+  backdrop-filter:blur(12px);
+
+  color:#e6eeeb;
+
+  padding:100px 40px 30px;
+
+  border-radius:70px 70px 0 0;
+
+  box-shadow:0 -10px 40px rgba(0,0,0,.25);
+}
+
+
+/* SOFT WAVE */
+.footer-wave{
+  position:absolute;
+  top:-28px;
+  left:0;
+  width:100%;
+  height:56px;
+
+  background:inherit;
+
+  border-radius:50% 50% 0 0;
+
+  opacity:.35;
+}
+
+
+/* GRID */
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.6fr 1fr 1fr;
+
+  gap:40px;
+
+  max-width:1150px;
+  margin:auto;
+}
+
+
+/* LOGO - NO BACKGROUND */
+.f-logo{
+  height:72px;
+  background:none !important;
+  padding:0;
+  margin-bottom:12px;
+
+  transition:.4s;
+}
+
+.footer-logo:hover .f-logo{
+  transform:translateY(-4px) scale(1.04);
+}
+
+
+/* TEXT */
+.f-text{
+  font-size:14px;
+  line-height:1.7;
+  color:#cfe5de;
+  margin-bottom:10px;
+}
+
+
+/* HEADINGS WITH SHIMMER */
+.footer h4{
+  color:#fff;
+  margin-bottom:12px;
+  font-size:16px;
+  letter-spacing:.6px;
+
+  position:relative;
+}
+
+.footer h4::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-3px;
+
+  width:40px;
+  height:2px;
+
+  background:linear-gradient(90deg,var(--gold),#fff);
+
+  animation:glowLine 3s infinite;
+}
+
+@keyframes glowLine{
+  0%{width:20px}
+  50%{width:70px}
+  100%{width:20px}
+}
+
+
+/* LINKS */
+.footer a{
+  display:block;
+
+  color:#cfe5de;
+  text-decoration:none;
+
+  margin:8px 0;
+  font-size:14px;
+
+  transition:.3s;
+}
+
+.footer a:hover{
+  color:var(--gold);
+  transform:translateX(6px);
+}
+
+
+/* CONTACT ICONS */
+.f-contact p{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:8px 0;
+}
+
+.f-contact i{
+  color:var(--gold);
+}
+
+
+/* SOCIAL */
+.footer-social{
+  display:flex;
+  gap:10px;
+  margin-top:10px;
+}
+
+.footer-social a{
+  width:40px;
+  height:40px;
+
+  background:rgba(255,255,255,.08);
+
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  transition:.4s;
+}
+
+.footer-social a:hover{
+  background:var(--gold);
+  color:#01362f;
+
+  transform:translateY(-5px) rotate(6deg);
+}
+
+
+/* BOTTOM */
+.footer-bottom{
+  text-align:center;
+
+  margin-top:30px;
+  padding-top:16px;
+
+  border-top:1px solid rgba(255,255,255,.1);
+
+  font-size:13px;
+  color:#b8d1c9;
+}
+
+
+/* COLUMN HOVER LIFT */
+.f-about,
+.f-links,
+.f-contact{
+  transition:.4s;
+}
+
+.f-about:hover,
+.f-links:hover,
+.f-contact:hover{
+  transform:translateY(-6px);
+}
+
+
+/* MOBILE */
+@media(max-width:900px){
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .footer h4::after{
+    left:50%;
+    transform:translateX(-50%);
+  }
+
+  .f-contact p{
+    justify-content:center;
+  }
+
+  .footer-social{
+    justify-content:center;
+  }
+
+}
+
+/* ===== CBS SUPER HERO ===== */
+
+.cbs-hero{
+  position:relative;
+  height:100vh;
+  width:100%;
+  overflow:hidden;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* SLIDES */
+.hero-slides img{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  opacity:0;
+  animation:fadeHero 28s infinite;
+}
+
+.hero-slides img:nth-child(1){animation-delay:0s}
+.hero-slides img:nth-child(2){animation-delay:5s}
+.hero-slides img:nth-child(3){animation-delay:10s}
+.hero-slides img:nth-child(4){animation-delay:15s}
+.hero-slides img:nth-child(5){animation-delay:20s}
+
+@keyframes fadeHero{
+  0%{opacity:0;transform:scale(1)}
+  8%{opacity:1}
+  22%{opacity:1}
+  30%{opacity:0;transform:scale(1.08)}
+  100%{opacity:0}
+}
+
+/* OVERLAY */
+.hero-overlay{
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(
+    rgba(0,0,0,.55),
+    rgba(6,34,30,.55)
+  );
+
+  z-index:1;
+}
+
+/* GLASS BOX */
+.hero-box{
+  position:relative;
+  z-index:2;
+
+  background:
+  rgba(8,45,40,.72);
+
+  backdrop-filter:blur(14px);
+
+  padding:34px 30px;
+
+  border-radius:22px;
+
+  max-width:720px;
+  text-align:center;
+
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+
+/* TAG */
+.tag{
+  background:rgba(255,255,255,.12);
+
+  padding:6px 14px;
+  border-radius:30px;
+
+  font-size:12px;
+  letter-spacing:1px;
+
+  color:#fff;
+
+  display:inline-block;
+  margin-bottom:10px;
+}
+
+/* TITLE */
+.hero-box h1{
+  color:white;
+  font-size:44px;
+  line-height:1.2;
+}
+
+/* TYPING */
+.type{
+  display:block;
+  color:var(--gold);
+  min-height:46px;
+}
+
+/* TEXT */
+.hero-box p{
+  color:#e6f2ef;
+  margin:10px 0 16px;
+}
+
+/* BUTTONS */
+.hero-actions{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+}
+
+.hero-btn{
+  padding:12px 24px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:700;
+
+  transition:.4s;
+}
+
+.primary{
+  background:var(--gold);
+  color:#07362e;
+}
+
+.outline{
+  border:2px solid white;
+  color:white;
+}
+
+.hero-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 20px rgba(0,0,0,.3);
+}
+
+/* SCROLL */
+.scroll-indicator{
+  position:absolute;
+  bottom:20px;
+  z-index:2;
+}
+
+.scroll-indicator span{
+  width:24px;
+  height:38px;
+  border:2px solid white;
+  border-radius:30px;
+  display:block;
+  position:relative;
+}
+
+.scroll-indicator span::after{
+  content:"";
+  position:absolute;
+
+  width:4px;
+  height:8px;
+
+  background:white;
+
+  left:50%;
+  top:6px;
+
+  transform:translateX(-50%);
+
+  animation:scroll 1.6s infinite;
+}
+
+@keyframes scroll{
+  0%{top:6px;opacity:1}
+  100%{top:18px;opacity:0}
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+.hero-box h1{font-size:30px}
+
+.hero-actions{flex-direction:column}
+
+}
+.quick-box{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.7);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+
+.q-content{
+background:white;
+padding:24px;
+border-radius:18px;
+width:320px;
+text-align:center;
+}
+
+.q-close{
+float:right;
+cursor:pointer;
+font-size:22px;
+}
+.map-btn{
+display:inline-block;
+margin-top:12px;
+padding:9px 18px;
+border-radius:30px;
+text-decoration:none;
+font-size:.85rem;
+background:var(--green);
+color:#000;
+font-weight:600;
+transition:.3s;
+}
+
+.map-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 25px rgba(173,209,54,.35);
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="brand">
+
+  <!-- LOGO NO BACKGROUND -->
+  <img class="nav-logo" src="png_cbsl_logo_-removebg-preview.png">
+
+  <div class="brand-text">
+    <h3>CBS Logistics Limited</h3>
+    <small>Grown with Love. Delivered with Care.</small>
+  </div>
+
+</div>
+
+</nav>
+<!-- ===== ULTRA PREMIUM HERO ===== -->
+<section class="cbs-hero">
+
+  <div class="hero-slides">
+    <img src="https://i.pinimg.com/1200x/d6/4c/f3/d64cf361d8c1bcc1107737bbe7891c36.jpg">
+    <img src="https://i.pinimg.com/736x/13/5d/0c/135d0c5e7e06d02b7df49333f1eca3b8.jpg">
+    <img src="https://i.pinimg.com/736x/3c/2b/83/3c2b83365aaedea1b0fa50ae34361b4d.jpg">
+    <img src="https://i.pinimg.com/736x/ab/6d/a6/ab6da6d6e5cef68d825dc0d7d20a3abf.jpg">
+    <img src="https://i.pinimg.com/736x/7e/b0/ec/7eb0ec968b182ad527650b0682f0cf62.jpg">
+  </div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-box" data-aos="zoom-in">
+
+    <span class="tag">AFRICA → GLOBAL MARKETS</span>
+
+    <h1>
+      Connecting African Farmers  
+      <span class="type"></span>
+    </h1>
+
+    <p>
+      Cold Chain • Processing • Export • Agritech • Ethical Sourcing
+    </p>
+
+    
+
+  <a href="https://wa.me/254728608401?text=Hello%20CBS%20Logistics,%20I%20would%20like%20to%20learn%20more%20about%20your%20services." 
+   class="hero-btn outline" target="_blank">
+
+        Learn More
+      </a>
+    </div>
+
+  </div>
+
+  <div class="scroll-indicator">
+    <span></span>
+  </div>
+
+</section>
+
+<!-- HERO INTRO -->
+<section class="hero-intro">
+
+<div data-aos="fade-right">
+<h1>Trusted Export Partner<br>Across <span>Africa</span></h1>
+
+<div class="divider"></div>
+
+<p>
+CBS Logistics Limited supports international buyers with reliable,
+traceable and temperature-controlled supply of fresh produce from Kenya.
+</p>
+
+<a href="homecbs.html" class="btn-main">MORE ABOUT US</a>
+</div>
+
+<div data-aos="fade-left">
+<p>
+CBS Logistics Limited was established in 2019 as a logistics company supporting growers who required reliable transportation of agricultural produce to markets in good time and in the right condition. The company initially specialized in cold-chain refrigeration solutions, ensuring freshness and quality preservation.
+Over the years, CBS Logistics has expanded into multiple operational arms, strengthening the agricultural export value chain and enabling African produce to access international markets efficiently.
+Today, CBS Logistics integrates:
+•	Agricultural production
+•	Processing and value addition
+•	Cold-chain and dry logistics
+•	Export aggregation and distribution Our operations are driven by one purpose:
+connecting African farmers to the world. 
+</p>
+</div>
+
+</section>
+
+<!-- ===== PREMIUM MISSION VISION SEGMENT ===== -->
+<section class="mv-ultra">
+
+<div class="mv-header" data-aos="fade-up">
+  <span class="mini">OUR COMPASS</span>
+  <h2>Mission & Vision</h2>
+  <div class="gold-line"></div>
+</div>
+
+<div class="mv-grid">
+
+  <!-- ===== MISSION ===== -->
+  <div class="mv-card" data-aos="fade-right">
+
+    <div class="icon-box">
+      <i class="fa fa-bullseye"></i>
+    </div>
+
+    <h3>Our Mission</h3>
+
+    <div class="motion-bar"></div>
+
+    <p>
+    To integrate expertise across agriculture, engineering and logistics  
+    delivering safe, high-quality agricultural products that meet global standards,  
+    while minimizing post-harvest losses and maximizing value for African growers.
+    </p>
+
+    <div class="tags">
+      <span>Quality</span>
+      <span>Traceability</span>
+      <span>Integrity</span>
+    </div>
+
+  </div>
+
+  <!-- ===== VISION ===== -->
+  <div class="mv-card" data-aos="fade-left">
+
+    <div class="icon-box vision">
+      <i class="fa fa-eye"></i>
+    </div>
+
+    <h3>Our Vision</h3>
+
+    <div class="motion-bar"></div>
+
+    <p>
+    To empower African growers — both small and large scale —  
+    through technology, ethical trade and reliable markets,  
+    positioning Africa as a leading global food supplier.
+    </p>
+
+    <div class="tags">
+      <span>Growth</span>
+      <span>Technology</span>
+      <span>Sustainability</span>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- floating shapes -->
+<div class="shape s1"></div>
+<div class="shape s2"></div>
+
+</section>
+
+
+<div class="wrap">
+
+<!-- ETHICAL -->
+<div class="section bg1" data-aos="fade-up">
+<h3>Ethical Sourcing Framework</h3>
+
+<ul class="tick">
+<li>Fair farmer pricing models</li>
+<li>Risk distribution across value chain</li>
+<li>Grower protection contracts</li>
+<li>Long-term supply agreements</li>
+</ul>
+
+<div class="image-row">
+<img src="https://i.pinimg.com/1200x/b0/a7/d9/b0a7d9b6c9e2d5bc48ed4457cfa5ab83.jpg">
+<img src="https://i.pinimg.com/1200x/4d/b4/35/4db435377db657fd668c333dfbed0d2d.jpg">
+</div>
+</div>
+
+<!-- FARM TO FORK -->
+<div class="section bg2" data-aos="fade-up">
+<h3>Farm-to-Fork Control</h3>
+
+<ul class="tick">
+<li>Agronomy & field supervision</li>
+<li>Cold chain storage</li>
+<li>Processing & grading</li>
+<li>Export documentation</li>
+</ul>
+
+<div class="image-row">
+<img src="https://i.pinimg.com/736x/d4/99/8a/d4998a1cb0fb1d98fc32fb1c630bf96f.jpg">
+<img src="https://images.pexels.com/photos/2226458/pexels-photo-2226458.jpeg">
+</div>
+</div>
+
+<!-- TECHNOLOGY -->
+<div class="section bg3" data-aos="fade-up">
+<h3>Technology & Compliance</h3>
+
+<ul class="tick">
+<li>IoT temperature monitoring</li>
+<li>Traceability systems</li>
+<li>Quality analytics</li>
+<li>Global market standards</li>
+</ul>
+</div>
+
+<!-- BUYER TRUST -->
+<div class="trust" data-aos="fade-up">
+
+<div class="trust-box">
+<i class="fa fa-snowflake"></i>
+<h4>Cold Chain</h4>
+<p>End-to-end temperature integrity</p>
+</div>
+
+<div class="trust-box">
+<i class="fa fa-file"></i>
+<h4>Documentation</h4>
+<p>KEPHIS & international compliance</p>
+</div>
+
+<div class="trust-box">
+<i class="fa fa-truck"></i>
+<h4>Logistics</h4>
+<p>Air & sea export handling</p>
+</div>
+
+</div>
+
+<!-- COUNTERS -->
+<div class="counters" data-aos="fade-up">
+
+<div class="count">
+<h2 class="num" data-n="6">0</h2>
+<p>Years</p>
+</div>
+
+<div class="count">
+<h2 class="num" data-n="1200">0</h2>
+<p>Farmers</p>
+</div>
+
+<div class="count">
+<h2 class="num" data-n="18">0</h2>
+<p>Markets</p>
+</div>
+
+</div>
+
+</div>
+<br>
+<br>
+<footer class="footer">
+
+<div class="footer-wave"></div>
+
+<div class="footer-grid">
+
+<!-- ABOUT -->
+<div class="f-about">
+
+  <div class="footer-logo">
+    <!-- LOGO NO BACKGROUND -->
+    <img class="f-logo" src="png_cbsl_logo_-removebg-preview.png">
+  </div>
+
+  <p class="f-text">
+  CBS Logistics Limited is a Kenyan fresh produce export and cold chain company  
+  providing end-to-end handling from farm booking, harvesting, cooling,  
+  packing, documentation to final delivery in global markets.
+  </p>
+
+  <p class="f-text">
+  We focus on traceability, temperature control and compliance with  
+  Global GAP, HACCP, ISO 22000 and KEPHIS export standards.
+  </p>
+
+</div>
+
+<!-- LINKS -->
+<div class="f-links">
+
+  <h4>Important Links</h4>
+
+  <a href="homecbs.html">Home</a>
+  <a href="aboutcbs.html">About</a>
+  <a href="teaexport.htmle">Tea Export</a>
+  <a href="CROPS.html">Crops</a>
+  <a href="servicescbs.html">Services</a>
+
+</div>
+
+<div class="f-contact">
+
+  <h4>Head Office – Nairobi</h4>
+
+  <p>
+    <i class="fa fa-building"></i>
+    CBS Logistics Limited
+  </p>
+
+  <p>
+    <i class="fa fa-map-marker"></i>
+    Lenana Rd Lenana Court <br> Nairobi,Kenya.
+  </p>
+
+  <p>
+    <i class="fa fa-clock"></i>
+    Mon – Fri: 8:00 AM – 5:00 PM
+  </p>
+
+  <p>
+    <i class="fa fa-envelope"></i>
+    info@cbs-l.com
+  </p>
+
+  <p>
+    <i class="fa fa-phone"></i>
+    +254 728 608 401
+  </p>
+
+  <a href="https://www.google.com/maps/search/?api=1&query=Nairobi+Kenya"
+     target="_blank"
+     class="map-btn">
+     View Office on Map
+  </a>
+
+  <h4 style="margin-top:18px">Follow Us</h4>
+
+  <div class="footer-social">
+
+    <a href="https://www.facebook.com/profile.php?id=61586586574551">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="https://linkedin.com/company/yourpage">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <a href="#"><i class="fab fa-tiktok"></i></a>
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
+
+  </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 CBS Logistics Limited – Grown with Love. Delivered with Care.
+</div>
+
+</footer>
+
+<div id="quickBox" class="quick-box">
+
+  <div class="q-content">
+
+    <span class="q-close" onclick="closeBox()">×</span>
+
+    <h3>Talk to CBS Logistics</h3>
+
+    <p>Leave your number and we call you in 5 minutes</p>
+
+    <input placeholder="Your Name">
+    <input placeholder="Phone Number">
+
+    <button class="btn-main">
+      Request Call
+    </button>
+
+  </div>
+
+</div>
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({duration:900, once:true});
+
+/* ===== SCROLL TRIGGERED COUNTER ===== */
+
+const counters = document.querySelectorAll(".num");
+
+const observer = new IntersectionObserver((entries, obs) => {
+
+  entries.forEach(entry => {
+
+    if(entry.isIntersecting){
+
+      const el = entry.target;
+      const target = +el.dataset.n;
+
+      let current = 0;
+      const duration = 2000; // total animation time
+      const stepTime = 20;
+      const increment = target / (duration / stepTime);
+
+      const timer = setInterval(() => {
+
+        current += increment;
+
+        if(current >= target){
+          el.innerText = target >= 1000 
+            ? target.toLocaleString() + "+" 
+            : target + "+";
+          clearInterval(timer);
+        } else {
+          el.innerText = Math.floor(current);
+        }
+
+      }, stepTime);
+
+      obs.unobserve(el); // run only once
+
+    }
+
+  });
+
+}, { threshold: 0.6 });
+
+counters.forEach(counter => {
+  observer.observe(counter);
+});
+
+// NAVBAR SCROLL EFFECT
+window.addEventListener("scroll", ()=>{
+
+  const nav = document.querySelector(".navbar");
+
+  if(window.scrollY > 50){
+    nav.classList.add("scrolled");
+  }else{
+    nav.classList.remove("scrolled");
+  }
+
+});
+
+const words = [
+"to Global Markets",
+"Through Smart Cold Chain",
+"With Ethical Trade",
+"Using Agritech",
+"With Trusted Logistics"
+];
+
+let i = 0;
+let el = document.querySelector(".type");
+
+function type(){
+  el.innerText = words[i];
+  i = (i + 1) % words.length;
+}
+
+setInterval(type, 2800);
+type();
+
+
+function openBox(){
+document.getElementById("quickBox").style.display="flex";
+}
+
+function closeBox(){
+document.getElementById("quickBox").style.display="none";
+}
+</script>
+
+</script>
+
+
+</body>
+</html>

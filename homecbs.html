@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CBS Logistics Limited</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+:root{
+--green:#a7c636;
+--teal:#0e5c4f;
+--gold:#f2b705;
+--dark:#0e0e0e;
+--light:#f7f9f8;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+html{scroll-behavior:smooth}
+
+/* ===== MODERN TECH NAVBAR ===== */
+
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:2000;
+
+  padding:12px 60px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  /* GLASS TECH LOOK */
+  background:rgba(8,45,40,.78);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+
+  border-bottom:1px solid rgba(255,255,255,.08);
+
+  transition:.4s ease;
+}
+
+/* SCROLL EFFECT */
+.navbar.scrolled{
+  background:rgba(6,34,30,.95);
+  box-shadow:0 12px 25px rgba(0,0,0,.25);
+  padding:8px 60px;
+}
+
+/* BRAND AREA */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  color:white;
+}
+
+.brand img{
+  height:54px;
+  background:white;
+  padding:6px;
+  border-radius:12px;
+
+  transition:.4s;
+}
+
+.brand h3{
+  font-size:18px;
+  letter-spacing:.8px;
+  font-weight:700;
+
+  background:linear-gradient(90deg,#fff,var(--gold));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.brand small{
+  opacity:.85;
+  letter-spacing:.6px;
+  font-size:11px;
+}
+
+/* ===== TECH NAV LINKS ===== */
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.nav-links a{
+  color:#eaf5f2;
+
+  padding:8px 14px;
+  border-radius:10px;
+
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+  letter-spacing:.7px;
+
+  position:relative;
+  transition:.35s ease;
+}
+
+/* HOVER BACKGROUND */
+.nav-links a:hover{
+  background:rgba(255,255,255,.08);
+  color:white;
+  transform:translateY(-1px);
+}
+
+/* TECH LINE */
+.nav-links a:after{
+  content:"";
+  position:absolute;
+
+  left:50%;
+  bottom:2px;
+
+  width:0%;
+  height:2px;
+
+  background:linear-gradient(90deg,var(--gold),#fff5a8);
+
+  transition:.35s ease;
+  transform:translateX(-50%);
+}
+
+/* GLOW LINE */
+.nav-links a:before{
+  content:"";
+  position:absolute;
+
+  left:50%;
+  bottom:2px;
+
+  width:0%;
+  height:2px;
+
+  background:var(--gold);
+  filter:blur(5px);
+
+  transition:.35s ease;
+  transform:translateX(-50%);
+  opacity:.6;
+}
+
+.nav-links a:hover:after,
+.nav-links a:hover:before{
+  width:60%;
+}
+
+/* ACTIVE TAB */
+.nav-links a.active{
+  background:rgba(242,183,5,.12);
+  color:#fff9d9;
+}
+
+.nav-links a.active:after{
+  width:60%;
+}
+
+/* CTA BUTTON */
+.nav-links .cta{
+  background:
+    linear-gradient(135deg,var(--gold),#d9a300);
+
+  color:#07362e !important;
+
+  padding:9px 18px;
+  border-radius:30px;
+
+  margin-left:12px;
+
+  box-shadow:
+    0 6px 14px rgba(242,183,5,.25),
+    inset 0 0 0 1px rgba(255,255,255,.3);
+
+  transition:.3s;
+}
+
+.nav-links .cta:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 20px rgba(242,183,5,.35);
+}
+
+
+
+
+/* ===== PERFECT FULL WIDTH HERO ===== */
+
+.hero{
+  position:relative;
+
+  /* CRITICAL FIXES */
+  padding:0 !important;
+  margin:0 !important;
+
+  width:100vw;
+  max-width:100%;
+
+  height:100vh;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  overflow:hidden;
+}
+
+/* container */
+.hero-slides{
+  position:absolute;
+  top:0;
+  left:0;
+
+  width:100vw;
+  height:100vh;
+}
+
+/* ALL IMAGES FULL SCREEN */
+.hero-slides img{
+  position:absolute;
+  top:0;
+  left:0;
+
+  width:100vw;
+  height:100vh;
+
+  object-fit:cover;
+  object-position:center;
+
+  opacity:0;
+  animation:heroFade 25s infinite;
+}
+
+/* SOFT OVERLAY */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:linear-gradient(
+    rgba(6,34,30,.32),
+    rgba(0,0,0,.28)
+  );
+
+  z-index:1;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+/* ===== HERO TEXT PURE WHITE ===== */
+
+.hero-content h1{
+  color:#ffffff !important;
+  text-shadow:0 4px 12px rgba(0,0,0,.4);
+}
+
+.hero-content p{
+  color:#ffffff !important;
+  opacity:.95;
+}
+
+/* optional: make button text darker for contrast */
+.hero-content .btn{
+  color:#07362e;
+}
+
+/* TIMING FOR EACH IMAGE */
+.hero-slides img:nth-child(1){ animation-delay:0s }
+.hero-slides img:nth-child(2){ animation-delay:5s }
+.hero-slides img:nth-child(3){ animation-delay:10s }
+.hero-slides img:nth-child(4){ animation-delay:15s }
+.hero-slides img:nth-child(5){ animation-delay:20s }
+h1{
+  text-emphasis-color: var(--light);
+}
+/* FADE ANIMATION */
+@keyframes heroFade{
+  0%{ opacity:0; transform:scale(1.05); }
+  8%{ opacity:1; }
+  20%{ opacity:1; }
+  28%{ opacity:0; }
+  100%{ opacity:0; transform:scale(1.12); }
+}
+/* prevent navbar from pushing hero */
+#home{
+  margin-top:0;
+}
+@keyframes heroFade{
+  0%{
+    opacity:.3;
+    transform:scale(1);
+  }
+
+  8%{
+    opacity:1;
+  }
+
+  25%{
+    opacity:1;
+  }
+
+  33%{
+    opacity:.3;
+  }
+
+  100%{
+    opacity:.3;
+    transform:scale(1.05);
+  }
+}
+
+
+
+/* SECTIONS */
+section{padding:90px 60px}
+.alt{background:var(--light)}
+
+/* CARDS */
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+
+.card{background:white;padding:20px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.08)}
+
+/* PROCEDURE */
+.proc-item{margin-bottom:12px;border-radius:12px;overflow:hidden;background:white}
+.proc-head{padding:15px;cursor:pointer;background:#fff;font-weight:600}
+.proc-body{max-height:0;overflow:hidden;transition:.5s}
+.proc-body img{width:100%;height:210px;object-fit:cover}
+.proc-body .content{padding:15px}
+
+.badge{background:#eef6f2;padding:4px 10px;border-radius:20px;font-size:12px;margin:3px;display:inline-block}
+
+/* COUNTRIES */
+.country-card{
+text-align:center;
+padding:15px;
+border-radius:12px;
+background:white;
+box-shadow:0 5px 12px rgba(0,0,0,.08);
+}
+
+.flag{font-size:34px;margin-bottom:6px}
+
+/* CHECKLIST */
+.check li{
+list-style:none;
+margin:8px 0;
+padding-left:px;
+position:relative;
+}
+
+.check li:before{
+content:"✓";
+position:absolute;
+left:0;
+color:var(--teal);
+font-weight:bold;
+}
+
+/* BUTTON */
+.btn{
+background:var(--gold);border:none;padding:12px 24px;
+border-radius:30px;font-weight:700;margin-top:10px;cursor:pointer
+}
+
+/* FLOAT */
+.float{
+position:fixed;bottom:25px;right:25px;
+background:#25d366;color:white;padding:15px;
+border-radius:50%;font-size:26px;z-index:3000
+}
+
+.footer{background:var(--dark);color:#ddd;padding:60px;text-align:center}
+
+@media(max-width:900px){
+section{padding:60px 20px}
+.navbar{padding:10px 20px}
+}
+/* ===== PREMIUM CERTIFICATION SECTION ===== */
+
+#certifications{
+  position:relative;
+}
+
+/* grid */
+.cert-row{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:22px;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* card */
+.cert{
+  text-align:center;
+  background:white;
+  padding:16px 12px;
+  border-radius:16px;
+
+  border:1px solid rgba(14,92,79,.12);
+
+  box-shadow:
+    0 10px 25px rgba(14,92,79,.06),
+    inset 0 0 0 1px rgba(255,255,255,.7);
+
+  transition:.4s;
+  position:relative;
+  overflow:hidden;
+}
+
+/* gold top line */
+.cert:before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:4px;
+  background:linear-gradient(90deg,var(--gold),#ffd84d);
+  opacity:.7;
+}
+
+/* logo */
+.cert img{
+  width:100%;
+  max-height:74px;
+  object-fit:contain;
+
+  filter:grayscale(100%);
+  opacity:.85;
+  transition:.4s;
+}
+
+/* title */
+.cert p{
+  margin-top:8px;
+  font-weight:700;
+  color:var(--teal);
+  font-size:13px;
+  letter-spacing:.3px;
+}
+
+/* verified badge */
+.cert .v-badge{
+  background:#eef6f2;
+  color:var(--teal);
+  font-size:11px;
+  padding:3px 8px;
+  border-radius:20px;
+  display:inline-block;
+  margin-top:6px;
+}
+
+/* hover */
+.cert:hover{
+  transform:translateY(-6px);
+  box-shadow:
+    0 14px 30px rgba(14,92,79,.12);
+}
+
+.cert:hover img{
+  filter:grayscale(0%);
+  opacity:1;
+}
+
+/* mobile */
+@media(max-width:700px){
+  .cert-row{
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+  }
+
+  .cert{
+    padding:12px 8px;
+  }
+}
+/* audit year tag */
+.audit{
+  display:inline-block;
+  margin-top:6px;
+  font-size:11px;
+  padding:3px 8px;
+  border-radius:20px;
+  background:rgba(242,183,5,.15);
+  color:#7a5c00;
+  font-weight:700;
+}
+
+/* renewal line */
+.renew{
+  font-size:10px;
+  color:#6c7a75;
+  margin-top:4px;
+}
+.cert-photos{
+  display:flex;
+  gap:6px;
+  margin-top:8px;
+  justify-content:center;
+}
+
+.cert-photos img{
+  width:60px;
+  height:50px;
+  object-fit:cover;
+  border-radius:6px;
+  cursor:pointer;
+  border:1px solid #e3e3e3;
+  transition:.3s;
+}
+
+.cert-photos img:hover{
+  transform:scale(1.08);
+  border-color:var(--gold);
+}
+
+
+/* SHOW USER THEY MUST CLICK */
+.proc-head{
+display:flex;
+justify-content:space-between;
+align-items:center;
+transition:.3s;
+}
+
+.proc-head:hover{
+background:#eef6f2;
+}
+
+.indicator{
+font-size:12px;
+color:var(--teal);
+animation:bounce 1.6s infinite;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-3px)}
+}
+
+
+
+
+
+@keyframes imgFade{
+to{opacity:1;transform:translateY(0)}
+}
+/* ===== REQUEST TABLE STYLING ===== */
+
+.req-table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0 10px;
+  margin-top:10px;
+}
+
+/* ========== PREMIUM FORM TABLE ========== */
+
+.request-box{
+  background:linear-gradient(150deg,#ffffff,#f1f7f5);
+  border:1px solid rgba(14,92,79,.15);
+  border-radius:18px;
+  padding:18px;
+  margin-top:12px;
+  box-shadow:
+    0 10px 25px rgba(14,92,79,.06),
+    inset 0 0 0 1px rgba(255,255,255,.6);
+  backdrop-filter:blur(6px);
+  animation:slideUp .4s ease;
+}
+
+/* TABLE STRUCTURE */
+.req-table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0 12px;
+}
+
+/* LABEL SIDE */
+.req-table td:first-child{
+  font-weight:700;
+  color:var(--teal);
+  width:130px;
+  font-size:13px;
+  letter-spacing:.3px;
+  padding-top:14px;
+}
+
+/* INPUT WRAPPER EFFECT */
+.req-table td:last-child{
+  position:relative;
+}
+
+/* INPUTS */
+.req-table input,
+.req-table textarea{
+  width:100%;
+  padding:13px 14px 13px 38px;
+  border:1px solid #cfdcd7;
+  border-radius:12px;
+  background:white;
+  font-size:14px;
+  transition:.3s;
+}
+
+/* ICONS INSIDE INPUTS */
+.req-table td:last-child:before{
+  position:absolute;
+  left:12px;
+  top:14px;
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+  color:var(--teal);
+  opacity:.6;
+}
+
+.req-table tr:nth-child(1) td:last-child:before{content:"\f007"}
+.req-table tr:nth-child(2) td:last-child:before{content:"\f095"}
+.req-table tr:nth-child(3) td:last-child:before{content:"\f0e0"}
+.req-table tr:nth-child(4) td:last-child:before{content:"\f4ad"}
+
+/* TEXTAREA */
+.req-table textarea{
+  min-height:100px;
+  resize:none;
+}
+
+/* FOCUS */
+.req-table input:focus,
+.req-table textarea:focus{
+  border-color:var(--gold);
+  box-shadow:
+    0 0 0 3px rgba(242,183,5,.18),
+    0 6px 14px rgba(14,92,79,.1);
+  outline:none;
+}
+
+/* PLACEHOLDER */
+.req-table input::placeholder,
+.req-table textarea::placeholder{
+  color:#a5b8b1;
+}
+
+/* SUBMIT BUTTON */
+.request-box .btn{
+  width:100%;
+  background:
+    linear-gradient(140deg,var(--gold),#d9a300);
+  color:#07362e;
+  font-weight:800;
+  letter-spacing:.5px;
+  margin-top:8px;
+  box-shadow:0 6px 14px rgba(242,183,5,.25);
+  transition:.3s;
+}
+
+.request-box .btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 20px rgba(242,183,5,.35);
+}
+
+/* ANIMATIONS */
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+.req-table,
+.req-table tr,
+.req-table td{
+  display:block;
+  width:100%;
+}
+
+.req-table td:first-child{
+  padding:4px 4px 0 4px;
+}
+
+}
+/* ===== MODERN CURVED FOOTER ===== */
+
+.footer{
+  position:relative;
+  background:linear-gradient(160deg,var(--teal),#07362e);
+  color:#e6eeeb;
+  padding:90px 30px 30px;
+  margin-top:70px;
+
+  border-radius:70px 70px 0 0;
+}
+
+/* soft wave */
+.footer:before{
+  content:"";
+  position:absolute;
+  top:-28px;
+  left:0;
+  width:100%;
+  height:56px;
+  background:inherit;
+  border-radius:50% 50% 0 0;
+  opacity:.35;
+}
+
+/* GRID */
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:40px;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* HEADINGS */
+.footer h4{
+  color:#fff;
+  margin-bottom:12px;
+  font-size:16px;
+  letter-spacing:.4px;
+}
+
+/* LOGO */
+.footer-logo img{
+  height:68px;
+  background:white;
+  padding:6px;
+  border-radius:12px;
+  margin-bottom:10px;
+}
+
+/* TEXT */
+.footer p{
+  font-size:14px;
+  line-height:1.6;
+  color:#cfe5de;
+}
+
+/* LINKS */
+.footer a{
+  display:block;
+  color:#cfe5de;
+  text-decoration:none;
+  margin:7px 0;
+  font-size:14px;
+  transition:.3s;
+}
+
+.footer a:hover{
+  color:var(--gold);
+  transform:translateX(4px);
+}
+
+/* SOCIAL */
+.footer-social{
+  margin-top:10px;
+}
+
+.footer-social a{
+  width:38px;
+  height:38px;
+  background:rgba(255,255,255,.08);
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-right:8px;
+}
+
+.footer-social a:hover{
+  background:var(--gold);
+  color:#01362f;
+}
+
+/* BOTTOM */
+.footer-bottom{
+  text-align:center;
+  margin-top:30px;
+  padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.1);
+  font-size:13px;
+  color:#b8d1c9;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+  .footer-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .footer a:hover{
+    transform:none;
+  }
+}
+
+
+/* ===== GLOBAL SLIDER STYLE FOR ALL STEPS ===== */
+
+/* ===== SMALL UNIFORM SLIDER ===== */
+
+/* ===== UNIFORM SMALL SLIDER ===== */
+
+/* ===== KEEP ORIGINAL LOOK BUT UNIFORM ===== */
+
+.slider{
+  width: 100%;                 /* keep your layout */
+  max-width: 520px;            /* same as your design */
+  margin: 10px auto;
+  background:#fafafa;
+  padding:6px;
+  border-radius:10px;
+}
+
+/* ONE BY ONE SLIDE */
+.slides{
+  display:flex;
+  align-items:center;          /* center short images */
+  transition: transform 1.2s ease-in-out;
+}
+
+/* 👉 THIS IS THE MAGIC */
+.slides img{
+
+  width:100%;                  /* each slide full frame */
+  height:240px;                /* uniform window */
+
+  object-fit:cover;          /* ✅ NO CUTTING */
+  object-position:center;
+
+  background:#f5f5f5;          /* nice frame */
+
+  flex-shrink:0;
+  cursor:pointer;
+}
+
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.88);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.lightbox img{
+  max-width:94%;
+  max-height:94vh;
+
+  object-fit:contain;   /* IMPORTANT – full body visible */
+  border-radius:10px;
+}
+
+.lightbox .close{
+  position:absolute;
+  top:15px;
+  right:20px;
+  color:white;
+  font-size:32px;
+  cursor:pointer;
+}
+
+/* ARROWS */
+.prev,.next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,.5);
+  color:white;
+  border:none;
+  padding:8px 12px;
+  cursor:pointer;
+  border-radius:50%;
+  z-index:10;
+}
+
+.prev{left:10px}
+.next{right:10px}
+
+/* DOTS */
+.dots{text-align:center;padding:6px}
+
+.dot{
+  width:10px;
+  height:10px;
+  background:#ccc;
+  border-radius:50%;
+  display:inline-block;
+  margin:3px;
+  cursor:pointer;
+}
+
+.active-dot{background:var(--gold)}
+
+@media(max-width:700px){
+  .slides img{ height:230px }
+}
+.cert-desc{
+  font-size:12px;
+  color:#4a5c56;
+  margin-top:6px;
+  line-height:1.4;
+  display:none;
+  background:#f3f8f6;
+  padding:8px;
+  border-radius:8px;
+}
+
+.cert .more-btn{
+  font-size:11px;
+  color:var(--teal);
+  margin-top:6px;
+  cursor:pointer;
+  font-weight:700;
+}
+.proc-item{
+  text-align:center;
+}
+
+.proc-item p{
+  text-align:center;
+  margin-top:10px;
+}
+
+.proc-item .req-table{
+  margin:0 auto;
+}
+
+.proc-item .badge{
+  display:inline-block;
+}
+/* ===== HAMBURGER BUTTON ===== */
+
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+  z-index:3000;
+}
+
+.hamburger span{
+  width:26px;
+  height:3px;
+
+  background:linear-gradient(90deg,#fff,var(--gold));
+  border-radius:10px;
+
+  transition:.4s;
+}
+
+/* ANIMATION WHEN OPEN */
+.hamburger.active span:nth-child(1){
+  transform:rotate(45deg) translate(5px,6px);
+}
+
+.hamburger.active span:nth-child(2){
+  opacity:0;
+}
+
+.hamburger.active span:nth-child(3){
+  transform:rotate(-45deg) translate(6px,-7px);
+}
+
+/* ===== MOBILE MENU ===== */
+
+@media(max-width:900px){
+
+  .hamburger{
+    display:flex;
+  }
+
+  .nav-links{
+    position:fixed;
+    top:0;
+    right:-100%;
+
+    height:100vh;
+    width:70%;
+
+    flex-direction:column;
+    justify-content:center;
+
+    background:rgba(6,34,30,.96);
+    backdrop-filter:blur(14px);
+
+    padding:40px;
+
+    transition:.5s ease;
+
+    border-left:1px solid rgba(255,255,255,.08);
+  }
+
+  .nav-links a{
+    margin:10px 0;
+    font-size:16px;
+  }
+
+  .nav-links.show{
+    right:0;
+  }
+
+}
+/* OFFICE LOCATION CARD */
+.office-card{
+background:rgba(255,255,255,.05);
+padding:25px 22px;
+border-radius:16px;
+backdrop-filter:blur(6px);
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 20px 50px rgba(0,0,0,.25);
+transition:.35s ease;
+}
+
+.office-card:hover{
+transform:translateY(-6px);
+box-shadow:0 35px 80px rgba(0,0,0,.35);
+}
+
+.office-card h4{
+margin-bottom:14px;
+color:#fff;
+letter-spacing:.5px;
+}
+
+.office-card p{
+font-size:.9rem;
+margin:8px 0;
+opacity:.9;
+}
+
+.office-card i{
+margin-right:8px;
+color:var(--green);
+}
+
+/* MAP BUTTON */
+.map-btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 18px;
+border-radius:30px;
+text-decoration:none;
+font-size:.85rem;
+background:var(--green);
+color:#000;
+font-weight:600;
+transition:.3s;
+}
+
+.map-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 25px rgba(173,209,54,.35);
+}
+/* FOOTER COLUMN ALIGNMENT */
+.footer-col{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+/* PARAGRAPH SPACING */
+.footer-col p{
+margin:0;
+}
+
+/* EXTRA SPACE CLASS */
+.mt{
+margin-top:10px;
+}
+
+/* SOCIAL TITLE */
+.social-title{
+margin-top:18px;
+}
+
+/* IMPROVE GRID ALIGNMENT */
+.footer-grid{
+align-items:start;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+<div class="brand">
+<img src="png_cbsl_logo_-removebg-preview.png">
+<div>
+<h3>CBS Logistics Limited</h3>
+<small>Grown with Love. Delivered with Care.</small>
+</div>
+</div>
+
+<div class="nav-links" id="navMenu">
+  <a href="homecbs.html" class="active">Home</a>
+  <a href="aboutcbs.html">About</a>
+  <a href="teaexport.html">Tea Export</a>
+  <a href="servicescbs.html">Services</a>
+  <a href="Crops">Crops</a>
+</div>
+
+<!-- HAMBURGER -->
+<div class="hamburger" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+
+</nav>
+
+<!-- FLOATING WHATSAPP -->
+<a class="float" href="https://wa.me/254728608401">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- HERO WITH 5 IMAGE ANIMATION -->
+<section class="hero" id="home">
+
+  <section class="hero" id="home">
+
+  <div class="hero-slides">
+    <img src="https://images.pexels.com/photos/4481326/pexels-photo-4481326.jpeg">
+    <img src="https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg">
+    <img src="https://images.pexels.com/photos/5231137/pexels-photo-5231137.jpeg">
+    <img src="https://images.pexels.com/photos/4481324/pexels-photo-4481324.jpeg">
+    <img src="https://images.pexels.com/photos/708798/pexels-photo-708798.jpeg">
+  </div>
+
+  <div class="hero-content">
+    <h1>Connecting African Farmers to the World</h1>
+    <p>Cold Chain • Processing • Packaging • Export</p>
+    <button class="btn">Get Started</button>
+  </div>
+
+</section>
+
+
+  
+
+</section>
+
+
+
+<section class="alt" id="certifications">
+
+<h2 style="text-align:center;color:var(--teal)">
+Certifications & Compliance
+</h2>
+
+<p style="text-align:center;max-width:900px;margin:10px auto 25px">
+Our operations align with international food safety, traceability and export regulatory standards.
+</p>
+
+<div class="cert-row">
+
+<!-- GLOBAL GAP -->
+<div class="cert">
+ 
+  <p>Global GAP Aligned</p>
+
+  <span class="audit">Audit: 2024</span>
+
+  <div class="more-btn" onclick="toggleCert(this)">
+    Understand More ▾
+  </div>
+
+  <div class="cert-desc">
+    Global GAP ensures:
+    • Safe pesticide use  
+    • Farm traceability  
+    • Worker welfare  
+    • Environmental protection  
+    • Field to carton records
+  </div>
+</div>
+
+<!-- ISO 22000 -->
+<div class="cert">
+  <p>ISO 22000 Food Safety</p>
+
+  <span class="audit">Audit: 2024</span>
+
+  <div class="more-btn" onclick="toggleCert(this)">
+    Understand More ▾
+  </div>
+
+  <div class="cert-desc">
+    ISO 22000 covers:
+    • Packhouse hygiene  
+    • Cold chain control  
+    • Allergen management  
+    • Cleaning schedules  
+    • Corrective actions
+  </div>
+</div>
+
+<!-- HACCP -->
+<div class="cert">
+  <p>HACCP System</p>
+
+  <span class="audit">Audit: 2024</span>
+
+  <div class="more-btn" onclick="toggleCert(this)">
+    Understand More ▾
+  </div>
+
+  <div class="cert-desc">
+    HACCP manages:
+    • Hazard analysis  
+    • CCP monitoring  
+    • Temperature logs  
+    • Contamination prevention
+  </div>
+</div>
+
+<!-- KEPHIS -->
+<div class="cert">
+  <p>KEPHIS Approved</p>
+
+  <span class="audit">Licensed: 2024</span>
+
+  <div class="more-btn" onclick="toggleCert(this)">
+    Understand More ▾
+  </div>
+
+  <div class="cert-desc">
+    KEPHIS approval allows:
+    • Phytosanitary certificates  
+    • Export inspection  
+    • Pest control compliance  
+    • Market entry approval
+  </div>
+</div>
+
+<!-- ETHICAL -->
+<div class="cert">
+  <p>Ethical Sourcing</p>
+
+  <span class="audit">Verified: 2024</span>
+
+  <div class="more-btn" onclick="toggleCert(this)">
+    Understand More ▾
+  </div>
+
+  <div class="cert-desc">
+    Ethical sourcing ensures:
+    • Fair wages  
+    • No child labor  
+    • Safe conditions  
+    • Community impact
+  </div>
+</div>
+
+</div>
+</section>
+<p style="text-align:center;max-width:900px;margin:10px auto 25px">
+Shipment Procedure.
+</p>
+
+<!-- ===== STEP 1 ===== -->
+<div class="proc-item">
+
+<div class="proc-head" onclick="openStep(1)">
+1. Farm Booking
+</div>
+
+
+
+<!-- SLIDER -->
+<div class="slider">
+  <div class="slides">
+    <img src="harvestuse.jpeg">
+    <img src="sam @isac.jpeg">
+    <img src="green.jpeg">
+    <img src="harvest use2.jpeg">
+  </div>
+
+  <button class="prev" onclick="moveSlide(this,-1)">❮</button>
+  <button class="next" onclick="moveSlide(this,1)">❯</button>
+
+  <div class="dots"></div>
+</div>
+
+<!-- 👉 CENTERED CONTENT -->
+<div class="content">
+
+<p>Client booking → crop allocation → schedule confirmation</p>
+
+<div class="badge">Docs Needed</div>
+
+<ul class="check">
+<p>. Booking form</p>
+<p>. Farm details</p>
+</ul>
+
+
+
+<div id="form1" style="display:none">
+
+<form onsubmit="return sendSilent(this)">
+<table class="req-table">
+
+<tr>
+<td>Name</td>
+<td><input name="entry.312796761" required></td>
+</tr>
+
+<tr>
+<td>Phone</td>
+<td><input name="entry.27268637" required></td>
+</tr>
+
+<tr>
+<td>Email</td>
+<td><input name="entry.2069509345"></td>
+</tr>
+
+<tr>
+<td>Message</td>
+<td><textarea name="entry.1196604163"></textarea></td>
+</tr>
+
+</table>
+
+<button class="btn">Submit</button>
+</form>
+
+</div>
+
+</div><!-- end content -->
+</div><!-- end proc-body -->
+</div><!-- end proc-item -->
+
+
+
+<!-- ===== STEP 2 ===== -->
+<div class="proc-item">
+
+<div class="proc-head" onclick="openStep(2)">
+2. Harvest & Cooling
+
+</div>
+
+<div class="slider">
+
+  <div class="slides">
+    <img src="harvest.jpeg">
+    <img src="https://i.pinimg.com/736x/91/12/73/91127311f20ffe00962ef905da3a78ff.jpg">
+    <img src="https://i.pinimg.com/736x/70/4a/28/704a287f23760497bdfb11e343e26dca.jpg">
+    <img src="https://i.pinimg.com/1200x/d9/4c/e4/d94ce40a88b75cd3ab8c9930e08a56a3.jpg">
+  </div>
+
+  <button class="prev" onclick="moveSlide(this,-1)">❮</button>
+  <button class="next" onclick="moveSlide(this,1)">❯</button>
+
+  <div class="dots"></div>
+
+<p>Picking → cooling → temp logs</p>
+
+<div class="badge">Docs Needed</div>
+<ul class="check">
+<li>Temp log</li>
+<li>Harvest report</li>
+</ul>
+
+<button class="btn" onclick="showForm(2)">Send Request</button>
+
+<div id="form2" style="display:none">
+<form onsubmit="return sendSilent(this)">
+<table class="req-table">
+
+<tr><td>Name</td><td><input name="entry.312796761" required></td></tr>
+<tr><td>Phone</td><td><input name="entry.27268637" required></td></tr>
+<tr><td>Email</td><td><input name="entry.2069509345"></td></tr>
+<tr><td>Message</td><td><textarea name="entry.1196604163"></textarea></td></tr>
+
+</table>
+
+<button class="btn">Submit</button>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- ===== STEP 3 ===== -->
+<div class="proc-item">
+
+<div class="proc-head" onclick="openStep(3)">
+3. Packing
+
+</div>
+
+<div class="slider">
+
+  <div class="slides">
+    <img src="pack4.jpeg">
+    <img src="pack3.jpeg">
+    <img src="pack2.jpeg">
+      <img src="pack1.jpeg">
+  </div>
+
+  <button class="prev" onclick="moveSlide(this,-1)">❮</button>
+  <button class="next" onclick="moveSlide(this,1)">❯</button>
+
+  <div class="dots"></div>
+
+<p>Grading → labeling → carton sealing</p>
+
+<div class="badge">Docs Needed</div>
+<ul class="check">
+<li>Packing list</li>
+<li>Quality sheet</li>
+</ul>
+
+<button class="btn" onclick="showForm(3)">Send Request</button>
+
+<div id="form3" style="display:none">
+<form onsubmit="return sendSilent(this)">
+<table class="req-table">
+
+<tr><td>Name</td><td><input name="entry.312796761" required></td></tr>
+<tr><td>Phone</td><td><input name="entry.27268637" required></td></tr>
+<tr><td>Email</td><td><input name="entry.2069509345"></td></tr>
+<tr><td>Message</td><td><textarea name="entry.1196604163"></textarea></td></tr>
+
+</table>
+
+<button class="btn">Submit</button>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- ===== STEP 4 ===== -->
+<div class="proc-item">
+
+<div class="proc-head" onclick="openStep(4)">
+4. Documentation
+
+</div>
+
+<div class="slider">
+
+  <div class="slides">
+<img src="https://i.pinimg.com/736x/5a/2e/18/5a2e18f51782abf326cdda4fd27394fd.jpg">
+<img src="https://i.pinimg.com/736x/24/aa/65/24aa656be2ab7de72627e49b6869b716.jpg">
+<img src="https://i.pinimg.com/736x/65/69/d0/6569d032dc7ed0b591d0e0beddb1609d.jpg">
+<img src="https://i.pinimg.com/736x/4d/8a/49/4d8a4958711e922b71b9716c9eb22b8a.jpg">
+</div>
+  <button class="prev" onclick="moveSlide(this,-1)">❮</button>
+  <button class="next" onclick="moveSlide(this,1)">❯</button>
+
+  <div class="dots"></div>
+
+<p>Phyto → invoice → CO → permits</p>
+
+<div class="badge">Docs Needed</div>
+<ul class="check">
+<li>Invoice</li>
+<li>Phyto certificate</li>
+</ul>
+
+<button class="btn" onclick="showForm(4)">Send Request</button>
+
+<div id="form4" style="display:none">
+<form onsubmit="return sendSilent(this)">
+<table class="req-table">
+
+<tr><td>Name</td><td><input name="entry.312796761" required></td></tr>
+<tr><td>Phone</td><td><input name="entry.27268637" required></td></tr>
+<tr><td>Email</td><td><input name="entry.2069509345"></td></tr>
+<tr><td>Message</td><td><textarea name="entry.1196604163"></textarea></td></tr>
+
+</table>
+
+<button class="btn">Submit</button>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- ===== STEP 5 ===== -->
+<div class="proc-item">
+
+<div class="proc-head" onclick="openStep(5)">
+5. Airport Handling
+
+</div>
+
+<div class="slider">
+
+  <div class="slides">
+<img src="https://i.pinimg.com/736x/23/89/b5/2389b55503365d1e820bb382c1506157.jpg">
+<img src="https://i.pinimg.com/736x/89/b2/31/89b231474878ac77fa17836abf15833a.jpg">
+<img src="https://i.pinimg.com/1200x/02/a7/3f/02a73f0def2b2d117becdf7c7b75bc78.jpg">
+<img src="https://i.pinimg.com/736x/98/53/be/9853beef7263b2617c8b713f39d87834.jpg">
+</div>
+
+ <button class="prev" onclick="moveSlide(this,-1)">❮</button>
+  <button class="next" onclick="moveSlide(this,1)">❯</button>
+
+  <div class="dots"></div>
+
+<p>Scanning → palletizing → cold storage</p>
+
+<div class="badge">Docs Needed</div>
+<ul class="check">
+<li>Airway bill</li>
+<li>Handling sheet</li>
+</ul>
+
+<button class="btn" onclick="showForm(5)">Send Request</button>
+
+<div id="form5" style="display:none">
+<form onsubmit="return sendSilent(this)">
+<table class="req-table">
+
+<tr><td>Name</td><td><input name="entry.312796761" required></td></tr>
+<tr><td>Phone</td><td><input name="entry.27268637" required></td></tr>
+<tr><td>Email</td><td><input name="entry.2069509345"></td></tr>
+<tr><td>Message</td><td><textarea name="entry.1196604163"></textarea></td></tr>
+
+</table>
+
+<button class="btn">Submit</button>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- ===== STEP 6 ===== -->
+<div class="proc-item">
+
+<div class="proc-head" onclick="openStep(6)">
+6. Flight & Delivery
+
+</div>
+
+<div class="slider">
+
+  <div class="slides">
+<img src="https://i.pinimg.com/736x/e9/02/9e/e9029efc5d640c0e52b4fbe78ef6afb0.jpg">
+<img src="https://i.pinimg.com/1200x/70/88/d3/7088d3b8fa93c75b11bd55431f6f2a67.jpg">
+<img src="https://i.pinimg.com/1200x/40/fb/89/40fb89d4043e95a34b82e653e2080e6f.jpg">
+<img src="https://i.pinimg.com/736x/dc/59/32/dc59326ca9b4604dc5ef3ef4fc93dd0a.jpg">
+</div>
+
+ <button class="prev" onclick="moveSlide(this,-1)">❮</button>
+  <button class="next" onclick="moveSlide(this,1)">❯</button>
+
+  <div class="dots"></div>
+
+<p>Export → tracking → final delivery</p>
+
+<div class="badge">Docs Needed</div>
+<ul class="check">
+<li>POD</li>
+<li>Tracking report</li>
+</ul>
+
+<button class="btn" onclick="showForm(6)">Send Request</button>
+
+<div id="form6" style="display:none">
+<form onsubmit="return sendSilent(this)">
+<table class="req-table">
+
+<tr><td>Name</td><td><input name="entry.312796761" required></td></tr>
+<tr><td>Phone</td><td><input name="entry.27268637" required></td></tr>
+<tr><td>Email</td><td><input name="entry.2069509345"></td></tr>
+<tr><td>Message</td><td><textarea name="entry.1196604163"></textarea></td></tr>
+
+</table>
+
+<button class="btn">Submit</button>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+</section>
+<!-- DOCUMENTS REQUIRED FOR EXPORT -->
+<section id="docs">
+<h2 style="text-align:center;color:var(--teal)">Documents Required for Export</h2>
+
+<div class="grid-3">
+
+<div class="card">
+<h4>Statutory Documents</h4>
+<ol class="check">
+<p> • KEPHIS Phytosanitary Certificate</p>
+<P> • Certificate of Origin<p>
+<p> • Export Permit</p>
+<p> • Customs Entry (C17)<p>
+</ol>
+</div>
+
+<div class="card">
+<h4>Commercial Documents</h4>
+<ul class="check">
+<p> • Commercial Invoice</p>
+<p> • Packing List</p>
+<p> • Airway Bill / Bill of Lading</p>
+<p> • Sales Contract<p>
+</ul>
+</div>
+
+<div class="card">
+<h4>Quality Documents</h4>
+<ul class="check">
+<p> • Quality Inspection Report</p>
+<p> • Temperature Logs</p>
+<p> • Traceability Codes</p>
+<p> • Buyer Specifications</p>
+</ul>
+</div>
+
+</div>
+
+<div style="text-align:center;margin-top:20px">
+<a class="btn" href="https://wa.me/254728608401?text=Help%20with%20export%20documents">
+Get Help With Documents
+</a>
+</div>
+
+</section>
+<div id="toast"
+style="
+position:fixed;
+bottom:20px;
+right:20px;
+background:#0e5c4f;
+color:white;
+padding:14px 20px;
+border-radius:10px;
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+display:none;
+z-index:9999;
+font-weight:600;
+">
+<i class="fa fa-check-circle"></i>
+ Received! We’ll get back to you shortly.
+</div>
+
+<footer class="footer">
+
+<div class="footer-grid">
+
+  <!-- ABOUT -->
+  <div class="footer-col">
+    <div class="footer-logo">
+      <img src="png_cbsl_logo_-removebg-preview.png">
+    </div>
+
+    <p>
+    CBS Logistics Limited is a Kenyan fresh produce export and cold chain company
+    providing end-to-end handling from farm booking, harvesting, cooling,
+    packing, documentation to final delivery in global markets.
+    </p>
+
+    <p class="mt">
+    We focus on traceability, temperature control and compliance with
+    Global GAP, HACCP, ISO 22000 and KEPHIS export standards.
+    </p>
+  </div>
+
+  <!-- LINKS -->
+  <div class="footer-col">
+    <h4>Important Links</h4>
+
+    <a href="homecbs.html">Home</a>
+    <a href="aboutcbs.html">About</a>
+    <a href="teaexport.html">Tea Export</a>
+    <a href="servicescbs.html">Services</a>
+    <a href="CROPS.html">Crops</a>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="footer-col">
+
+    <div class="office-card">
+      <h4>Head Office – Nairobi</h4>
+
+      <p><i class="fa fa-building"></i> CBS Logistics Limited</p>
+      <p><i class="fa fa-map-marker"></i> Lenana Rd  Lenana Court,<br> Nairobi, Kenya.</p>
+      <p><i class="fa fa-clock"></i> Mon – Fri: 8:00 AM – 5:00 PM</p>
+      <p><i class="fa fa-envelope"></i> info@cbs-l.com</p>
+      <p><i class="fa fa-phone"></i> +254 728 608 401</p>
+
+      <a href="https://www.google.com/maps/search/?api=1&query=Nairobi+Kenya" 
+         target="_blank" class="map-btn">
+         View Office on Map
+      </a>
+    </div>
+
+    <h4 class="social-title">Follow Us</h4>
+
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61586586574551">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://linkedin.com/company/yourpage">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="#"><i class="fab fa-tiktok"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer-bottom">
+© 2025 CBS Logistics Limited – Grown with Love. Delivered with Care.
+</div>
+
+</footer>
+
+
+
+<script>
+function openStep(n){
+  const body = document.getElementById("step"+n);
+
+  if(body.style.maxHeight){
+      body.style.maxHeight = null;
+  }else{
+      body.style.maxHeight = body.scrollHeight + "px";
+  }
+}
+
+function showForm(n){
+  const f = document.getElementById("form"+n);
+
+  if(f.style.display === "block"){
+      f.style.display = "none";
+  }else{
+      f.style.display = "block";
+  }
+
+  // make sure parent expands
+  const parent = document.getElementById("step"+n);
+  parent.style.maxHeight = parent.scrollHeight + 300 + "px";
+}
+
+
+function showToast(){
+const t = document.getElementById("toast");
+t.style.display = "block";
+
+setTimeout(()=>{
+t.style.display = "none";
+}, 3000);
+}
+
+function sendSilent(form){
+
+const data = new FormData();
+
+data.append("entry.312796761", form.querySelector('[name="entry.312796761"]').value);
+data.append("entry.27268637", form.querySelector('[name="entry.27268637"]').value);
+data.append("entry.2069509345", form.querySelector('[name="entry.2069509345"]').value);
+data.append("entry.1196604163", form.querySelector('[name="entry.1196604163"]').value);
+
+fetch("https://docs.google.com/forms/d/e/1FAIpQLSdTztqWi99ZBHPzF-q5BmmUk1BfiIrun9kb4Ji5q2ubY4OUYA/formResponse",{
+method:"POST",
+mode:"no-cors",
+body:data
+})
+.then(()=>{
+
+// clear form fields
+form.reset();
+
+// show nice popup
+showToast();
+
+});
+
+return false;
+}
+document.querySelectorAll('.slider').forEach(initSlider);
+
+function initSlider(slider){
+
+  const slides = slider.querySelector('.slides');
+  const imgs = slides.querySelectorAll('img');
+  const dotsBox = slider.querySelector('.dots');
+
+  let index = 0;
+
+  // create dots
+  imgs.forEach((_,i)=>{
+    const d = document.createElement('span');
+    d.className='dot';
+    d.onclick=()=>go(i);
+    dotsBox.appendChild(d);
+  });
+
+  function update(){
+    slides.style.transform =
+       `translateX(-${index*100}%)`;
+
+    dotsBox.querySelectorAll('.dot')
+      .forEach((d,i)=>{
+        d.classList.toggle('active-dot', i===index);
+      });
+  }
+
+  window.moveSlide = function(btn,n){
+    const s = btn.closest('.slider');
+    if(s!==slider) return;
+
+    index = (index+n+imgs.length)%imgs.length;
+    update();
+  }
+
+  function go(i){
+    index=i;
+    update();
+  }
+
+  // AUTO SLIDE
+  setInterval(()=>{
+    index=(index+1)%imgs.length;
+    update();
+  },3000);
+
+  update();
+}
+// ===== ZOOM SYSTEM =====
+document.querySelectorAll('.slides img').forEach(img=>{
+  img.addEventListener('click', ()=>{
+    openZoom(img.src);
+  });
+});
+
+function openZoom(src){
+  document.getElementById('zoomImg').src = src;
+  document.getElementById('lightbox').style.display="flex";
+}
+
+function closeZoom(){
+  document.getElementById('lightbox').style.display="none";
+}
+
+// close when clicking outside
+document.getElementById('lightbox').addEventListener('click', e=>{
+  if(e.target.id === "lightbox") closeZoom();
+});
+function toggleCert(btn){
+
+  const box = btn.nextElementSibling;
+
+  if(box.style.display === "block"){
+    box.style.display = "none";
+    btn.innerHTML = "Understand More ▾";
+  }else{
+    box.style.display = "block";
+    btn.innerHTML = "Show Less ▴";
+  }
+
+}
+// NAVBAR SCROLL EFFECT
+window.addEventListener("scroll", ()=>{
+  const nav = document.querySelector(".navbar");
+
+  if(window.scrollY > 60){
+    nav.classList.add("scrolled");
+  }else{
+    nav.classList.remove("scrolled");
+  }
+});
+function toggleMenu(){
+  const menu = document.getElementById("navMenu");
+  const burger = document.querySelector(".hamburger");
+
+  menu.classList.toggle("show");
+  burger.classList.toggle("active");
+}
+
+// CLOSE MENU WHEN LINK CLICKED
+document.querySelectorAll('.nav-links a').forEach(link=>{
+  link.addEventListener('click', ()=>{
+
+    const menu = document.getElementById("navMenu");
+    const burger = document.querySelector(".hamburger");
+
+    menu.classList.remove("show");
+    burger.classList.remove("active");
+
+  });
+});
+
+</script>
+</body>
+</html>

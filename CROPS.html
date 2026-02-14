@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Crops Export Division | CBS Logistics Limited</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+:root{
+--green:#add136;
+--teal:#005f56;
+--dark:#0c1b19;
+--light:#f4f7f6;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+
+body{color:#222;line-height:1.7}
+
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:2000;
+
+  padding:14px 70px;
+
+  display:flex;
+  align-items:center;
+
+  /* GLASS EFFECT */
+  background:rgba(8,45,40,.75);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+
+  border-bottom:1px solid rgba(255,255,255,.08);
+
+  transition:
+    padding .4s ease,
+    background .4s ease,
+    box-shadow .4s ease;
+}
+
+/* SCROLL TRANSITION */
+.navbar.scrolled{
+  background:rgba(6,34,30,.96);
+  padding:10px 70px;
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.28),
+    inset 0 0 0 1px rgba(255,255,255,.06);
+}
+
+
+/* ===== BRAND AREA ===== */
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+/* LOGO NO BACKGROUND */
+.nav-logo{
+  height:56px;
+  padding:0;
+  background:none !important;
+  transition:.4s;
+}
+
+/* slight lift on hover */
+.brand:hover .nav-logo{
+  transform:translateY(-2px) scale(1.03);
+}
+
+
+/* ===== TEXT STYLING ===== */
+
+/* ===== PREMIUM BRAND TEXT ===== */
+
+.brand-text{
+display:flex;
+flex-direction:column;
+line-height:1.1;
+}
+
+/* COMPANY NAME */
+.brand-text h3{
+font-size:22px;
+font-weight:800;
+letter-spacing:1px;
+position:relative;
+
+/* LUXURY GRADIENT TEXT */
+background:linear-gradient(
+90deg,
+#ffffff 0%,
+#d8ff74 40%,
+#f4c430 70%,
+#ffffff 100%
+);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+/* SOFT SHADOW */
+filter:drop-shadow(0 2px 6px rgba(0,0,0,.35));
+
+transition:.4s;
+}
+
+/* UNDERLINE ACCENT */
+.brand-text h3::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-4px;
+width:60%;
+height:2px;
+background:linear-gradient(90deg,var(--green),transparent);
+opacity:.6;
+transition:.4s;
+}
+
+/* HOVER EFFECT */
+.brand:hover h3{
+transform:translateY(-1px);
+filter:
+drop-shadow(0 4px 14px rgba(173,209,54,.45));
+}
+
+.brand:hover h3::after{
+width:90%;
+opacity:1;
+}
+
+/* TAGLINE */
+.brand-text small{
+margin-top:4px;
+font-size:12px;
+letter-spacing:1.1px;
+text-transform:uppercase;
+
+/* ELEGANT FADED WHITE */
+color:rgba(255,255,255,.85);
+
+/* SOFT SHADOW FOR READABILITY */
+text-shadow:0 1px 3px rgba(0,0,0,.4);
+
+transition:.4s;
+}
+
+/* TAGLINE HOVER */
+.brand:hover small{
+letter-spacing:1.4px;
+color:#ffffff;
+}
+
+
+/* HERO */
+.crops-hero{
+height:100vh;display:flex;align-items:center;justify-content:center;
+text-align:center;color:white;
+background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
+url("https://images.pexels.com/photos/2889442/pexels-photo-2889442.jpeg") center/cover;
+}
+.crops-hero h1{font-size:3rem;margin-bottom:20px}
+.btn-primary{background:var(--green);padding:14px 34px;border-radius:40px;color:#000;text-decoration:none}
+
+/* STATS */
+.stats{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;background:var(--light);padding:100px 60px;text-align:center;
+}
+.stat-box{background:#fff;padding:40px;border-radius:20px}
+
+/* PORTFOLIO */
+#portfolio{padding:110px 40px}
+#portfolio h2{text-align:center;color:var(--teal);margin-bottom:30px}
+
+.filter-wrapper{max-width:1000px;margin:auto;text-align:center}
+.search-box{max-width:420px;margin:0 auto 20px;position:relative}
+.search-box input{
+width:100%;padding:14px 20px 14px 45px;border-radius:40px;border:1px solid #ddd;
+}
+.search-box i{position:absolute;left:18px;top:50%;transform:translateY(-50%)}
+
+.filter-tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:40px}
+.filter-btn{
+padding:10px 18px;border:none;border-radius:30px;background:#e8f2ef;cursor:pointer
+}
+.filter-btn.active{background:var(--green);color:#000}
+
+/* GRID */
+.crop-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:30px;
+max-width:1200px;margin:auto;
+}
+
+.crop-item{
+position:relative;border-radius:20px;overflow:hidden;
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+.crop-item img{
+width:100%;
+height:260px;
+object-fit:cover;
+display:block;
+}
+.crop-info{
+position:absolute;bottom:0;width:100%;padding:18px;
+background:linear-gradient(to top,rgba(0,0,0,.8),transparent);
+color:white;
+}
+.crop-item.hide{display:none}
+
+/* PROCESS / CTA / FOOTER */
+.process,.cta,.footer{padding:90px 40px;text-align:center}
+.cta{background:var(--teal);color:#fff}
+.footer{background:var(--dark);color:#ddd}
+
+@media(max-width:700px){
+.crops-hero h1{font-size:2rem}
+}
+/* MODAL */
+.crop-modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.75);
+z-index:5000;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+
+.crop-modal-content{
+background:#fff;
+max-width:520px;
+width:100%;
+border-radius:18px;
+padding:25px;
+text-align:center;
+position:relative;
+animation:pop .35s ease;
+}
+
+.crop-modal-content img{
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:12px;
+margin-bottom:15px;
+}
+
+.crop-close{
+position:absolute;
+right:15px;
+top:10px;
+font-size:28px;
+cursor:pointer;
+}
+
+@keyframes pop{
+from{transform:scale(.85);opacity:0}
+to{transform:scale(1);opacity:1}
+}
+/* PROCESS SECTION */
+.process{
+background:linear-gradient(180deg,#f4f7f6,#ffffff);
+padding:120px 40px;
+text-align:center;
+}
+
+.process h2{
+color:var(--teal);
+margin-bottom:70px;
+font-size:2.4rem;
+}
+
+/* GRID */
+.process-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:40px;
+max-width:1100px;
+margin:auto;
+position:relative;
+}
+
+/* CONNECTING LINE */
+.process-line{
+width:80%;
+height:3px;
+background:linear-gradient(90deg,var(--green),transparent);
+margin:0 auto 60px auto;
+opacity:.4;
+}
+
+/* STEP CARD */
+.process-step{
+background:#fff;
+padding:35px 25px;
+border-radius:18px;
+box-shadow:0 20px 60px rgba(0,0,0,.08);
+transition:.35s ease;
+}
+
+.process-step:hover{
+transform:translateY(-8px);
+box-shadow:0 30px 80px rgba(0,0,0,.15);
+}
+
+/* ICON */
+.process-icon{
+width:70px;
+height:70px;
+margin:0 auto 18px auto;
+border-radius:50%;
+background:var(--green);
+display:flex;
+align-items:center;
+justify-content:center;
+color:#000;
+font-size:28px;
+}
+
+.process-step h4{
+margin-bottom:10px;
+color:var(--teal);
+}
+
+.process-step p{
+font-size:.9rem;
+color:#555;
+}
+/* HERO UPGRADE */
+.crops-hero{
+position:relative;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+padding:120px 20px;
+background:
+url("https://images.pexels.com/photos/2889442/pexels-photo-2889442.jpeg")
+center/cover no-repeat;
+overflow:hidden;
+}
+
+.hero-overlay{
+position:absolute;
+inset:0;
+background:
+linear-gradient(120deg, rgba(0,0,0,.7), rgba(0,95,86,.6));
+backdrop-filter:blur(2px);
+}
+
+.hero-content{
+position:relative;
+max-width:900px;
+z-index:2;
+animation:fadeUp 1s ease forwards;
+}
+
+.hero-content h1{
+font-size:3.2rem;
+margin-bottom:18px;
+line-height:1.25;
+}
+
+.hero-content h1 span{
+color:var(--green);
+}
+
+.hero-content p{
+color:#ddd;
+font-size:1.1rem;
+margin-bottom:35px;
+}
+
+/* BUTTONS */
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-bottom:35px;
+}
+
+.btn-outline{
+border:2px solid #fff;
+padding:12px 30px;
+border-radius:40px;
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+.btn-outline:hover{
+background:white;
+color:#000;
+}
+
+/* BADGES */
+.hero-badges{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+font-size:.9rem;
+opacity:.9;
+}
+
+.hero-badges div{
+background:rgba(255,255,255,.1);
+padding:10px 18px;
+border-radius:30px;
+backdrop-filter:blur(6px);
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:700px){
+.hero-content h1{font-size:2.1rem}
+}
+/* ===== PREMIUM FOOTER ===== */
+
+.footer{
+position:relative;
+background:linear-gradient(160deg,#062c28,#021615);
+color:#e7f3f0;
+padding:120px 60px 40px;
+overflow:hidden;
+}
+
+/* WAVE TOP */
+.footer-wave{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:70px;
+background:radial-gradient(circle at 50% 100%,rgba(173,209,54,.4),transparent 70%);
+opacity:.3;
+}
+
+/* GRID */
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1.2fr;
+gap:60px;
+max-width:1200px;
+margin:auto;
+}
+
+/* LOGO */
+.f-logo{
+height:60px;
+margin-bottom:15px;
+}
+
+/* TEXT */
+.f-text{
+font-size:.92rem;
+line-height:1.7;
+opacity:.85;
+margin-bottom:15px;
+}
+
+/* TITLES */
+.footer h4{
+color:#fff;
+margin-bottom:18px;
+font-weight:600;
+letter-spacing:.6px;
+position:relative;
+}
+
+/* UNDERLINE */
+.footer h4::after{
+content:"";
+position:absolute;
+bottom:-6px;
+left:0;
+width:40px;
+height:2px;
+background:var(--green);
+}
+
+/* LINKS */
+.f-links a{
+display:block;
+text-decoration:none;
+color:#cfe8e3;
+margin:8px 0;
+transition:.3s;
+font-size:.9rem;
+}
+
+.f-links a:hover{
+color:#ffffff;
+transform:translateX(4px);
+}
+
+/* CONTACT */
+.f-contact p{
+font-size:.9rem;
+margin:8px 0;
+opacity:.85;
+}
+
+.f-contact i{
+margin-right:8px;
+color:var(--green);
+}
+
+/* SOCIAL ICONS */
+.footer-social{
+display:flex;
+gap:14px;
+margin-top:12px;
+}
+
+.footer-social a{
+width:38px;
+height:38px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:rgba(255,255,255,.05);
+color:#fff;
+font-size:14px;
+transition:.3s;
+}
+
+.footer-social a:hover{
+background:var(--green);
+color:#000;
+transform:translateY(-4px);
+box-shadow:0 10px 20px rgba(173,209,54,.35);
+}
+
+/* BOTTOM BAR */
+.footer-bottom{
+margin-top:60px;
+padding-top:20px;
+text-align:center;
+font-size:.85rem;
+border-top:1px solid rgba(255,255,255,.08);
+opacity:.8;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.footer-grid{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.footer h4::after{
+left:50%;
+transform:translateX(-50%);
+}
+
+.footer-social{
+justify-content:center;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="brand">
+
+  <!-- LOGO NO BACKGROUND -->
+  <img class="nav-logo" src="png_cbsl_logo_-removebg-preview.png">
+
+  <div class="brand-text">
+    <h3>CBS Logistics Limited</h3>
+    <small>Grown with Love. Delivered with Care.</small>
+  </div>
+
+</div>
+
+</nav>
+
+
+
+<section class="crops-hero">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h1>
+      Export-Grade <span>Fresh Produce</span><br>
+      From Farm to Global Markets
+    </h1>
+
+    <p>
+      CBS Logistics connects certified farmers to international buyers
+      through reliable cold-chain, packaging and export logistics.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#portfolio" class="btn-primary">Explore Crops</a>
+      <a href="https://wa.me/254728608401?text=Hello%20CBS%20Logistics.%20I%20am%20interested%20in%20your%20export%20fresh%20produce.%20Please%20share%20availability,%20pricing%20and%20delivery%20options." 
+   class="btn-outline" target="_blank">
+   Request Supply
+</a>
+
+    </div>
+
+    <div class="hero-badges">
+      <div>🌍 28+ Countries</div>
+      <div>🚜 1500+ Farmers</div>
+      <div>📦 Export Certified</div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="portfolio">
+<h2>Our Crop Portfolio</h2>
+
+<div class="filter-wrapper">
+
+<div class="search-box">
+<i class="fas fa-search"></i>
+<input type="text" id="cropSearch" placeholder="Search crops...">
+</div>
+
+<div class="filter-tabs">
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="fruit">Fruits</button>
+<button class="filter-btn" data-filter="veg">Vegetables</button>
+<button class="filter-btn" data-filter="herb">Herbs</button>
+<button class="filter-btn" data-filter="special">Specialty</button>
+<button class="filter-btn" data-filter="nut">Nuts</button>
+</div>
+
+</div>
+
+<div class="crop-grid">
+
+<!-- SAMPLE CROPS -->
+<!-- FRUITS -->
+<div class="crop-item" data-category="fruit"><img src="https://i.pinimg.com/736x/a9/10/f7/a910f76ccc5a6a547078d18eb4a3189d.jpg"><div class="crop-info"><h4>Avocados</h4></div></div>
+<div class="crop-item" data-category="fruit"><img src="https://i.pinimg.com/736x/ad/b3/ef/adb3ef321b97b314a7bb704ed1fef078.jpg"><div class="crop-info"><h4>Mangoes</h4></div></div>
+<div class="crop-item" data-category="fruit"><img src="https://i.pinimg.com/736x/45/2c/5e/452c5e46d8f67450329ed359660cee85.jpg"><div class="crop-info"><h4>Pineapples</h4></div></div>
+<div class="crop-item" data-category="fruit"><img src="https://i.pinimg.com/736x/0d/08/e1/0d08e1d08a4652f21d9e629628cc4211.jpg"><div class="crop-info"><h4>Bananas</h4></div></div>
+<div class="crop-item" data-category="fruit"><img src="https://i.pinimg.com/736x/74/b4/27/74b427e0cf3f02478e1fef8058cfc69f.jpg"><div class="crop-info"><h4>Papayas</h4></div></div>
+
+<!-- VEGETABLES -->
+<div class="crop-item" data-category="veg"><img src="https://i.pinimg.com/736x/9c/fc/07/9cfc0799b21eff6895ad37688176deb8.jpg"><div class="crop-info"><h4>Broccoli</h4></div></div>
+<div class="crop-item" data-category="veg"><img src="https://i.pinimg.com/736x/d4/a4/99/d4a499ac95f640a1506eb7f121e4a3ed.jpg"><div class="crop-info"><h4>Baby Corn</h4></div></div>
+<div class="crop-item" data-category="veg"><img src="https://i.pinimg.com/736x/20/71/e0/2071e02ce6f147590bb329f0d69e38cf.jpg"><div class="crop-info"><h4>Capsicum</h4></div></div>
+<div class="crop-item" data-category="veg"><img src="https://i.pinimg.com/736x/87/ab/26/87ab269e6fbbdd174b73530765f7785c.jpg"><div class="crop-info"><h4>Eggplants</h4></div></div>
+<div class="crop-item" data-category="veg"><img src="https://i.pinimg.com/736x/e1/4a/b4/e14ab474beec9a44bdf2c7294f2be168.jpg"><div class="crop-info"><h4>Green Beans</h4></div></div>
+
+<!-- HERBS -->
+<div class="crop-item" data-category="herb"><img src="https://i.pinimg.com/736x/c9/57/b8/c957b8490b06d748047e09734e162cb9.jpg"><div class="crop-info"><h4>Basil</h4></div></div>
+<div class="crop-item" data-category="herb"><img src="https://i.pinimg.com/736x/50/2b/e7/502be76777a80089568faa7b2a307cec.jpg"><div class="crop-info"><h4>Parsley</h4></div></div>
+<div class="crop-item" data-category="herb"><img src="https://i.pinimg.com/1200x/ac/1f/bf/ac1fbf5876a91905cdb473113569fe35.jpg"><div class="crop-info"><h4>Dill</h4></div></div>
+<div class="crop-item" data-category="herb"><img src="https://i.pinimg.com/736x/46/1c/92/461c92e9cd2a95ca69f9f4b9a9d23057.jpg"><div class="crop-info"><h4>Oregano</h4></div></div>
+<div class="crop-item" data-category="herb"><img src="https://i.pinimg.com/1200x/e2/8e/2d/e28e2dc3d870d6a5b18caa824721e13c.jpg"><div class="crop-info"><h4>Lemongrass</h4></div></div>
+
+<!-- SPECIALTY -->
+<div class="crop-item" data-category="special"><img src="https://i.pinimg.com/736x/57/a0/88/57a088582de1cc0f578e225fced43354.jpg"><div class="crop-info"><h4>Ginger</h4></div></div>
+<div class="crop-item" data-category="special"><img src="https://i.pinimg.com/736x/73/29/94/732994628dbef3d1f1e7a3705f042ad4.jpg"><div class="crop-info"><h4>Garlic</h4></div></div>
+<div class="crop-item" data-category="special"><img src="hhttps://i.pinimg.com/736x/44/c0/b5/44c0b5be612000c989134530860261f6.jpg"><div class="crop-info"><h4>Chili Peppers</h4></div></div>
+<div class="crop-item" data-category="special"><img src="https://i.pinimg.com/736x/d5/05/3d/d5053dbc2cb0b348d72db334e4832297.jpg"><div class="crop-info"><h4>Rosemary</h4></div></div>
+<div class="crop-item" data-category="special"><img src="https://i.pinimg.com/736x/b0/ca/c7/b0cac74e05d4f11127e7476f5260c0e0.jpg"><div class="crop-info"><h4>Turmeric</h4></div></div>
+
+<!-- NUTS -->
+<div class="crop-item" data-category="nut"><img src="https://i.pinimg.com/736x/61/d1/a0/61d1a00440e3be4ad6d7f7e38652433b.jpg"><div class="crop-info"><h4>Macadamia</h4></div></div>
+<div class="crop-item" data-category="nut"><img src="https://i.pinimg.com/736x/80/27/ce/8027ce9fe4517d66db60b6f019613cc6.jpg"><div class="crop-info"><h4>Cashews</h4></div></div>
+<div class="crop-item" data-category="nut"><img src="https://i.pinimg.com/474x/ac/eb/84/aceb84b725d578d8e2502adeb8673e3d.jpg"><div class="crop-info"><h4>Groundnuts</h4></div></div>
+<div class="crop-item" data-category="nut"><img src="https://i.pinimg.com/736x/5a/0d/64/5a0d64e1a8d7a7b8342b8c3aebb0c4cb.jpg"><div class="crop-info"><h4>Pistachios</h4></div></div>
+<div class="crop-item" data-category="nut"><img src="https://i.pinimg.com/736x/4a/cc/01/4acc014ae2aff451b9a3fb2811d531ed.jpg"><div class="crop-info"><h4>Almonds</h4></div></div>
+</div>
+</section>
+
+<section class="process">
+  <h2>Farm to Global Market Journey</h2>
+
+  <div class="process-line"></div>
+
+  <div class="process-grid">
+
+    <div class="process-step">
+      <div class="process-icon"><i class="fas fa-seedling"></i></div>
+      <h4>Farm Production</h4>
+      <p>Certified farmers cultivate crops using export-compliant agronomic practices and traceability systems.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="process-icon"><i class="fas fa-people-carry-box"></i></div>
+      <h4>Aggregation & Sorting</h4>
+      <p>Produce is collected, graded, and quality-checked at regional aggregation hubs.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="process-icon"><i class="fas fa-temperature-low"></i></div>
+      <h4>Cold Chain Handling</h4>
+      <p>Temperature-controlled storage preserves freshness and extends shelf life.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="process-icon"><i class="fas fa-box-open"></i></div>
+      <h4>Export Packaging</h4>
+      <p>Produce is packed to international standards with labeling, documentation and compliance checks.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="process-icon"><i class="fas fa-ship"></i></div>
+      <h4>Global Dispatch</h4>
+      <p>Air or sea freight shipping ensures timely delivery to international buyers.</p>
+    </div>
+
+  </div>
+</section>
+<<footer class="footer">
+
+<div class="footer-wave"></div>
+
+<div class="footer-grid">
+
+<!-- COMPANY INFO -->
+<div class="f-about">
+
+  <img class="f-logo" src="png_cbsl_logo_-removebg-preview.png">
+
+  <p class="f-text">
+  CBS Logistics Limited is a Kenyan export logistics and cold-chain company
+  providing end-to-end handling from farm sourcing, cooling, packaging,
+  documentation and global delivery.
+  </p>
+
+  <p class="f-text">
+  We operate under strict export compliance including Global GAP,
+  HACCP, ISO 22000 and KEPHIS certification standards.
+  </p>
+
+</div>
+
+<!-- QUICK LINKS -->
+<div class="f-links">
+
+  <h4>Important Links</h4>
+
+  <a href="homecbs.html">Home</a>
+  <a href="aboutcbs.html">About</a>
+  <a href="teaexport.html">Tea Export</a>
+  <a href="CROPS.html">Crops</a>
+  <a href="servicescbs.html">Services</a>
+
+</div>
+
+<!-- CONTACT + LOCATION -->
+<div class="f-contact">
+
+  <h4>Contact</h4>
+
+  <p><i class="fa fa-envelope"></i> info@cbs-l.com</p>
+  <p><i class="fa fa-phone"></i> +254 728 608 401</p>
+
+  <h4 style="margin-top:22px">Office Location</h4>
+
+  <p>
+    <i class="fa fa-map-marker"></i>
+    Lenana Rd,Lenana Court<br>
+    Nairobi, Kenya
+  </p>
+
+  <!-- MAP BUTTON -->
+  <a href="https://maps.google.com/?q=Nairobi+Kenya"
+     target="_blank"
+     style="
+     display:inline-block;
+     margin-top:10px;
+     padding:10px 18px;
+     border-radius:30px;
+     background:var(--green);
+     color:#000;
+     font-size:.85rem;
+     text-decoration:none;
+     ">
+     View on Map
+  </a>
+
+  <!-- SOCIAL -->
+  <div class="footer-social">
+
+    <a href="https://www.facebook.com/profile.php?id=61586586574551">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="https://linkedin.com/company/yourpage">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <a href="#"><i class="fab fa-tiktok"></i></a>
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
+
+  </div>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 CBS Logistics Limited • Export Logistics • Cold Chain • Global Delivery
+</div>
+
+</footer>
+
+
+
+
+<script>
+const filterButtons=document.querySelectorAll(".filter-btn");
+const cropItems=document.querySelectorAll(".crop-item");
+
+filterButtons.forEach(btn=>{
+btn.addEventListener("click",()=>{
+document.querySelector(".filter-btn.active").classList.remove("active");
+btn.classList.add("active");
+const filter=btn.dataset.filter;
+cropItems.forEach(item=>{
+item.classList.toggle("hide",!(filter==="all"||item.dataset.category===filter));
+});
+});
+});
+
+document.getElementById("cropSearch").addEventListener("keyup",e=>{
+const search=e.target.value.toLowerCase();
+const active=document.querySelector(".filter-btn.active").dataset.filter;
+cropItems.forEach(item=>{
+const name=item.innerText.toLowerCase();
+const matchesSearch=name.includes(search);
+const matchesFilter=active==="all"||item.dataset.category===active;
+item.classList.toggle("hide",!(matchesSearch&&matchesFilter));
+});
+});
+/* POPUP SYSTEM */
+const modal=document.getElementById("cropModal");
+const modalImg=document.getElementById("modalImg");
+const modalTitle=document.getElementById("modalTitle");
+const modalDesc=document.getElementById("modalDesc");
+
+document.querySelectorAll(".crop-item").forEach(card=>{
+  card.addEventListener("click",()=>{
+    modal.style.display="flex";
+
+    modalImg.src=card.querySelector("img").src;
+    modalTitle.innerText=card.innerText.trim();
+
+    modalDesc.innerText=
+      "Export-ready crop sourced from certified farms. " +
+      "Handled through cold-chain logistics and international compliance procedures.";
+  });
+});
+
+document.querySelector(".crop-close").onclick=()=>{
+  modal.style.display="none";
+};
+
+window.onclick=e=>{
+  if(e.target===modal){
+    modal.style.display="none";
+  }
+};
+/* ===== STATS COUNTER FIXED VERSION ===== */
+
+const counters = document.querySelectorAll(".counter");
+let started = false;
+
+function runCounters() {
+
+  if (started) return;
+
+  const statsSection = document.querySelector(".stats");
+  const sectionTop = statsSection.getBoundingClientRect().top;
+  const screenHeight = window.innerHeight;
+
+  if (sectionTop < screenHeight - 100) {
+
+    counters.forEach(counter => {
+
+      
+
+
+</script>
+
+</body>
+</html>
