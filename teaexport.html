@@ -1947,6 +1947,77 @@ padding:30px 20px;
 }
 
 }
+/* ===== MOBILE FIX MASTER PATCH ===== */
+@media(max-width:768px){
+
+/* Disable fixed background (mobile bug) */
+.heritage-bg{
+background-attachment:scroll !important;
+}
+
+/* Push page below fixed navbar */
+body{
+padding-top:70px;
+}
+
+/* Reduce large paddings */
+section,
+.intro-section,
+.trade-desk,
+.tea-portfolio{
+padding:70px 20px !important;
+}
+
+/* Fix watermark overflow */
+.intro-section::after{
+font-size:3rem !important;
+white-space:normal;
+}
+
+/* Stack intro layout */
+.intro-grid{
+grid-template-columns:1fr !important;
+}
+
+/* Remove floating images on phone */
+.small-img{
+display:none !important;
+}
+
+/* Reduce hero text */
+.heritage-title{
+font-size:2rem !important;
+}
+.heritage-sub{
+font-size:.95rem;
+}
+
+/* Fix navbar width */
+nav{
+padding:12px 16px !important;
+}
+
+/* Prevent horizontal scrolling globally */
+body, html{
+overflow-x:hidden;
+}
+
+/* Stack trade desk */
+.desk-wrapper{
+grid-template-columns:1fr !important;
+}
+
+/* Smaller cards */
+.tea-card{
+height:360px;
+}
+
+/* Fix footer spacing */
+.footer{
+padding:60px 18px 25px;
+}
+
+}
 
 </style>
 </head>
