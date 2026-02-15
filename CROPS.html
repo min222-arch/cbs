@@ -684,7 +684,7 @@ justify-content:center;
 <!-- SPECIALTY -->
 <div class="crop-item" data-category="special"><img src="https://i.pinimg.com/736x/57/a0/88/57a088582de1cc0f578e225fced43354.jpg"><div class="crop-info"><h4>Ginger</h4></div></div>
 <div class="crop-item" data-category="special"><img src="https://i.pinimg.com/736x/73/29/94/732994628dbef3d1f1e7a3705f042ad4.jpg"><div class="crop-info"><h4>Garlic</h4></div></div>
-<div class="crop-item" data-category="special"><img src="hhttps://i.pinimg.com/736x/44/c0/b5/44c0b5be612000c989134530860261f6.jpg"><div class="crop-info"><h4>Chili Peppers</h4></div></div>
+<div class="crop-item" data-category="special"><img src="https://i.pinimg.com/736x/44/c0/b5/44c0b5be612000c989134530860261f6.jpg"><div class="crop-info"><h4>Chili Peppers</h4></div></div>
 <div class="crop-item" data-category="special"><img src="https://i.pinimg.com/736x/d5/05/3d/d5053dbc2cb0b348d72db334e4832297.jpg"><div class="crop-info"><h4>Rosemary</h4></div></div>
 <div class="crop-item" data-category="special"><img src="https://i.pinimg.com/736x/b0/ca/c7/b0cac74e05d4f11127e7476f5260c0e0.jpg"><div class="crop-info"><h4>Turmeric</h4></div></div>
 
@@ -736,7 +736,7 @@ justify-content:center;
 
   </div>
 </section>
-<<footer class="footer">
+<footer class="footer">
 
 <div class="footer-wave"></div>
 
@@ -832,6 +832,18 @@ justify-content:center;
 </footer>
 
 
+<!-- CROP MODAL -->
+<div id="cropModal" class="crop-modal">
+  <div class="crop-modal-content">
+
+    <span class="crop-close">&times;</span>
+
+    <img id="modalImg" src="">
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+
+  </div>
+</div>
 
 
 <script>
@@ -887,26 +899,7 @@ window.onclick=e=>{
     modal.style.display="none";
   }
 };
-/* ===== STATS COUNTER FIXED VERSION ===== */
-
-const counters = document.querySelectorAll(".counter");
-let started = false;
-
-function runCounters() {
-
-  if (started) return;
-
-  const statsSection = document.querySelector(".stats");
-  const sectionTop = statsSection.getBoundingClientRect().top;
-  const screenHeight = window.innerHeight;
-
-  if (sectionTop < screenHeight - 100) {
-
-    counters.forEach(counter => {
-
       
-
-
 </script>
 
 </body>
